@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# 生成配置文件
+echo -e "<?php if ("\!"defined('SYSTEM_ROOT')) { die('Insufficient Permissions'); }\ndefine('DB_HOST',getenv('OPENSHIFT_MYSQL_DB_HOST'));\ndefine('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));\ndefine('DB_PASSWD',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));\ndefine('DB_NAME',getenv('OPENSHIFT_APP_NAME'));\ndefine('DB_PREFIX','tc_');">${OPENSHIFT_REPO_DIR}config.php
