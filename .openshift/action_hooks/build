@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#禁止APC缓存
+# 禁止APC缓存
 echo 'php_value apc.cache_by_default off' > ${OPENSHIFT_REPO_DIR}.htaccess
 
 # 下载签到助手
@@ -10,9 +10,6 @@ unzip Tieba-sign.zip
 cp -r Tieba-Cloud-Sign/* ./
 rm -rf Tieba-sign.zip Tieba-Cloud-Sign
 
-#下载文件管理器
+# 下载文件管理器
 cd ${OPENSHIFT_REPO_DIR}
-curl -s https://github.com/kalcaddle/KODExplorer/archive/master.zip > filebrowser.zip
-unzip filebrowser.zip
-mv KODExplorer filebrowser
-rm -f filebrowser.zip
+git clone https://github.com/kalcaddle/KODExplorer filebrowser/
