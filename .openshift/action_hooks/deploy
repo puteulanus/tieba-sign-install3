@@ -4,6 +4,6 @@
 echo -e "<?php if ("\!"defined('SYSTEM_ROOT')) { die('Insufficient Permissions'); }\ndefine('DB_HOST',getenv('OPENSHIFT_MYSQL_DB_HOST'));\ndefine('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));\ndefine('DB_PASSWD',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));\ndefine('DB_NAME',getenv('OPENSHIFT_APP_NAME'));\ndefine('DB_PREFIX','tc_');">${OPENSHIFT_REPO_DIR}config.php
 
 # 修改安装文件
-sed -e '/<head>/a\if (!isset($_GET["step"]) || $_GET["step"] == 0) {echo "<meta http-equiv=\\"refresh\\" content=\\"0;url=install.php?step=2\\">";exit;}' -e 's/<option value="1">是<\/option>/<option value="1" selected="true">是<\/option>/' -e '/站点创始人信息/a\echo "<script type = \\"text\/JavaScript\\">$(\\"db_config\\").hide();<\/script>"' ${OPENSHIFT_REPO_DIR}setup/install.php > ${OPENSHIFT_REPO_DIR}setup/install.tmp.php
+sed -e '/<head>/a\if (!isset($_GET["step"]) || $_GET["step"] == 0) {echo "<meta http-equiv=\\"refresh\\" content=\\"0;url=install.php?step=2\\">";exit;}' -e 's/<option value="1">是<\/option>/<option value="1" selected="true">是<\/option>/' -e '/站点创始人信息/a\echo "<script type = \\"text\/JavaScript\\">$(\\"db_config\\").hide();<\/script>"/' ${OPENSHIFT_REPO_DIR}setup/install.php > ${OPENSHIFT_REPO_DIR}setup/install.tmp.php
 mv ${OPENSHIFT_REPO_DIR}setup/install.php ${OPENSHIFT_REPO_DIR}setup/install.bak.php
 mv ${OPENSHIFT_REPO_DIR}setup/install.tmp.php ${OPENSHIFT_REPO_DIR}setup/install.php
