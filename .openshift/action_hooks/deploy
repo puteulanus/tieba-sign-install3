@@ -5,3 +5,7 @@ echo -e "<?php if ("\!"defined('SYSTEM_ROOT')) { die('Insufficient Permissions')
 
 # 修改安装文件
 sed -i -e '/<head>/a\if (!isset($_GET["step"]) || $_GET["step"] == 0) {echo "<meta http-equiv=\\"refresh\\" content=\\"0;url=install.php?step=2\\">";exit;}' -e 's/<option value="1">是<\/option>/<option value="1" selected="true">是<\/option>/' -e '/站点创始人信息/a\echo "<script type=\\"text\/JavaScript\\">$(\\"#db_config\\").hide();<\/script>";' -e 's/请添加一个计划任务.*<\/font><\/b> )/云签到的安装已经全部完成，开始使用吧~<\/br>如需上传插件或管理文件，请使用Plus分支安装/' ${OPENSHIFT_REPO_DIR}setup/install.php
+
+# 增加临时首页跳转
+mv ${OPENSHIFT_REPO_DIR}index.php ${OPENSHIFT_REPO_DIR}index.tmp.php
+echo -e "<?php\nif (file_exists('setup/install.lock')) {\nunlink('index.php');\nrename('index.tmp.php','index.php');\n} esle {\necho '<meta http-equiv=\"refresh\" content=\"0;url=setup/install.php\">';\n}">${OPENSHIFT_REPO_DIR}index.php
