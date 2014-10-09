@@ -4,7 +4,7 @@
 echo -e "<?php if ("\!"defined('SYSTEM_ROOT')) { die('Insufficient Permissions'); }\ndefine('DB_HOST',getenv('OPENSHIFT_MYSQL_DB_HOST'));\ndefine('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));\ndefine('DB_PASSWD',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));\ndefine('DB_NAME',getenv('OPENSHIFT_APP_NAME'));\ndefine('DB_PREFIX','tc_');">${OPENSHIFT_REPO_DIR}config.php
 
 # 修改安装文件
-sed  -i -e '/<head>/a\if (!isset($_GET["step"]) || $_GET["step"] == 0) {echo "<meta http-equiv=\\"refresh\\" content=\\"0;url=install.php?step=2\\">";exit;}' -e 's/<option value="1">是<\/option>/<option value="1" selected="true">是<\/option>/' -e '/站点创始人信息/a\echo "<script type=\\"text\/JavaScript\\">$(\\"#db_config\\").hide();<\/script>";' -e "s/请添加一个计划任务.*<\/\/b> )/云签到的安装已经全部完成，芒果云默认账户密码均为admin，请务必及时修改密码。<\/br>芒果云文件管理的地址为<a href=\"https:\/\/\'\.getenv('OPENSHIFT_APP_DNS')\.\'\">https:\/\/\'\.getenv('OPENSHIFT_APP_DNS')\.\'\/filebrowser<\/a>/" ${OPENSHIFT_REPO_DIR}setup/install.php ${OPENSHIFT_REPO_DIR}setup/install.php
+sed  -i -e '/<head>/a\if (!isset($_GET["step"]) || $_GET["step"] == 0) {echo "<meta http-equiv=\\"refresh\\" content=\\"0;url=install.php?step=2\\">";exit;}' -e 's/<option value="1">是<\/option>/<option value="1" selected="true">是<\/option>/' -e '/站点创始人信息/a\echo "<script type=\\"text\/JavaScript\\">$(\\"#db_config\\").hide();<\/script>";' -e "s/请添加一个计划任务.*<\/font><\/b> )/云签到的安装已经全部完成，芒果云默认账户密码均为admin，请务必及时修改密码。<\/br>芒果云文件管理的地址为<a href=\"https:\/\/\'\.getenv('OPENSHIFT_APP_DNS')\.\'\">https:\/\/\'\.getenv('OPENSHIFT_APP_DNS')\.\'\/filebrowser<\/a>/" ${OPENSHIFT_REPO_DIR}setup/install.php ${OPENSHIFT_REPO_DIR}setup/install.php
 
 # 增加临时首页跳转
 mv ${OPENSHIFT_REPO_DIR}index.php ${OPENSHIFT_REPO_DIR}index.tmp.php
