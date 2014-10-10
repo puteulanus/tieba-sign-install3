@@ -31,7 +31,7 @@ mysql_query('INSERT INTO '.DB_PREFIX."mok_pluginup (pname,purl,ltime) VALUES ('w
 mysql_query('INSERT INTO '.DB_PREFIX."mok_pluginup (pname,purl,ltime) VALUES ('wmzz_todcui','http://www.stus8.com/forum.php?mod=viewthread&tid=2932','')");
 
 // 修改应用地址为https
-mysql_query("UPDATE tc_options SET value = 'https://".getenv('OPENSHIFT_APP_DNS')."/' WHERE name = 'system_url'");
+mysql_query("UPDATE ".DB_PREFIX."options SET value = 'https://".getenv('OPENSHIFT_APP_DNS')."/' WHERE name = 'system_url'");
 
 // 关闭连接
 mysql_close($lk);
