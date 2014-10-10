@@ -8,4 +8,4 @@ sed -i -e '/<head>/a\if (!isset($_GET["step"]) || $_GET["step"] == 0) {echo "<me
 
 # 增加临时首页跳转
 mv ${OPENSHIFT_REPO_DIR}index.php ${OPENSHIFT_REPO_DIR}index.tmp.php
-echo -e "<?php\nif (file_exists('setup/install.lock')) {\nunlink('index.php');\nrename('index.tmp.php','index.php');\necho '<meta http-equiv=\"refresh\" content=\"0;url=index.php\">';} else {\necho '<meta http-equiv=\"refresh\" content=\"0;url=setup/install.php\">';\n}">${OPENSHIFT_REPO_DIR}index.php
+echo -e "<?php\nif (file_exists('setup/install.lock')) {\nunlink('index.php');\nrename('index.tmp.php','index.php');\ninclude('.openshift/pluginUp_address.php');\necho '<meta http-equiv=\"refresh\" content=\"0;url=index.php\">';} else {\necho '<meta http-equiv=\"refresh\" content=\"0;url=setup/install.php\">';\n}">${OPENSHIFT_REPO_DIR}index.php
