@@ -29,6 +29,7 @@ mysql_query('INSERT INTO '.DB_PREFIX."mok_pluginup (pname,purl,ltime) VALUES ('w
 mysql_query('INSERT INTO '.DB_PREFIX."mok_pluginup (pname,purl,ltime) VALUES ('wmzz_post','http://www.stus8.com/forum.php?mod=viewthread&tid=2499','')");
 mysql_query('INSERT INTO '.DB_PREFIX."mok_pluginup (pname,purl,ltime) VALUES ('wmzz_skui','http://www.stus8.com/forum.php?mod=viewthread&tid=2735','')");
 mysql_query('INSERT INTO '.DB_PREFIX."mok_pluginup (pname,purl,ltime) VALUES ('wmzz_todcui','http://www.stus8.com/forum.php?mod=viewthread&tid=2932','')");
+mysql_query('INSERT INTO '.DB_PREFIX."mok_pluginup (pname,purl,ltime) VALUES ('mok_zdwk','http://www.stus8.com/forum.php?mod=viewthread&tid=4139','')");
 
 // 修改应用地址为https
 mysql_query("UPDATE ".DB_PREFIX."options SET value = 'https://".getenv('OPENSHIFT_APP_DNS')."/' WHERE name = 'system_url'");
