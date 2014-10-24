@@ -12,4 +12,4 @@ echo -e "<?php\nif (file_exists('setup/install.lock')) {\nunlink('index.php');\n
 
 # CDN
 sed -i -e 's/source\/js\/jquery\.min\.js/https:\/\/cdnjscn.b0.upaiyun.com\/libs\/jquery\/1\.10\.2\/jquery\.min\.js/' -e 's/source\/css\/bootstrap\.min\.css/https:\/\/cdnjscn\.b0\.upaiyun\.com\/libs\/twitter-bootstrap\/3\.2\.0\/css\/bootstrap\.min\.css/' -e 's/source\/js\/bootstrap\.min\.js/https:\/\/cdnjscn.b0.upaiyun.com\/libs\/twitter-bootstrap\/3.2.0\/js\/bootstrap\.min\.js/' ${OPENSHIFT_REPO_DIR}lib/ui.php
-sed -i -e 's/https:\/\/\{\$site\}\.gravatar/http://gravatar.duoshuo' ${OPENSHIFT_REPO_DIR}lib/sfc.functions.php
+sed -i -e 's/https:\/\/{$site}\.gravatar/http:\/\/gravatar\.duoshuo/' ${OPENSHIFT_REPO_DIR}lib/sfc.functions.php
