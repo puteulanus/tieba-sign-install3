@@ -11,6 +11,6 @@ places=($place)
 i=0
 for tmp in ${ips[@]}
 do
-curl -s -m 10 "http://api.ccindex.cn/ccindex.api?cmd=4&subcmd=3&url=${OPENSHIFT_APP_DNS}&ip=${ips[i]}&province=${places[i]}"
+curl -s -m 10 "http://api.ccindex.cn/ccindex.api?cmd=4&subcmd=3&url=https://${OPENSHIFT_APP_DNS}&ip=${ips[i]}&province=${places[i]}"
 i=`expr $i + 1`
 done
