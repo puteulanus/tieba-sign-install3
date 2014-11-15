@@ -5,10 +5,10 @@ echo 'php_value apc.cache_by_default off' > ${OPENSHIFT_REPO_DIR}.htaccess
 
 # 下载签到助手
 cd ${OPENSHIFT_REPO_DIR}
-curl -s http://git.oschina.net/kenvix/Tieba-Cloud-Sign/repository/archive?ref=master > Tieba-sign.zip
+curl -s https://codeload.github.com/kenvix/Tieba-Cloud-Sign/zip/master > Tieba-sign.zip
 unzip Tieba-sign.zip
-cp -r Tieba-Cloud-Sign/* ./
-rm -rf Tieba-sign.zip Tieba-Cloud-Sign
+cp -r Tieba-Cloud-Sign-master/* ./
+rm -rf Tieba-sign.zip Tieba-Cloud-Sign-master
 
 # 安装插件
 cd ${OPENSHIFT_REPO_DIR}
